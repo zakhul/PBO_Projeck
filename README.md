@@ -2,9 +2,16 @@
 # PBO_Projeck
 # 🍽️ E-Menu: Sistem Pemesanan Menu Kafe / Restoran
 
-Sistem pemesanan digital berbasis QR code untuk kafe dan restoran. Pelanggan memindai QR di meja, melihat menu, memesan, dan membayar tanpa instal aplikasi. Pesanan masuk ke dapur dan kasir secara real-time, sementara admin mengelola menu, meja, promo, dan laporan.
-
-> **Status:** tahap analisis dan desain (kebutuhan, class, use case, dan ERD). Repositori ini berisi dokumentasi desain dan kerangka kode awal.
+## Latar Belakang dan Tujuan
+ 
+Pemesanan di kafe dan restoran yang dilakukan secara manual membutuhkan waktu, bergantung pada ketersediaan pelayan, dan rawan salah catat antara meja, kasir, dan dapur. E-Menu dirancang sebagai sistem pemesanan digital berbasis QR code untuk mengatasi hal tersebut.
+ 
+Tujuan proyek:
+ 
+1. Merumuskan kebutuhan fungsional, kebutuhan non-fungsional, dan aturan bisnis sistem E-Menu.
+2. Merancang class, use case, dan ERD yang menjadi dasar implementasi.
+3. Memodelkan alur pemesanan dari pelanggan, kasir, dan dapur hingga laporan admin dengan pendekatan berorientasi objek.
+4. Menyediakan kerangka kode awal sebagai titik mulai tahap implementasi.
 
 ## Daftar Isi
 
@@ -546,73 +553,6 @@ erDiagram
 - `unit_price` dan `extra_price` disimpan sebagai snapshot agar perubahan harga menu tidak mengubah pesanan lama.
 - Cart cukup disimpan di sisi klien atau cache sementara, lalu menjadi `ORDERS` dan `ORDER_ITEM` saat checkout.
 
-## Contoh Kerangka Kode
-
-Contoh implementasi awal (Python) untuk `Order`, `OrderItem`, dan `MenuItem`, termasuk perhitungan PPN 11% dan service charge 5%:
-
-```python
-from dataclasses import dataclass, field
-from enum import Enum
-from typing import List
-from datetime import datetime
-
-
-class OrderStatus(Enum):
-    PENDING = "pending"
-    CONFIRMED = "confirmed"
-    PREPARING = "preparing"
-    READY = "ready"
-    SERVED = "served"
-    COMPLETED = "completed"
-    CANCELLED = "cancelled"
-
-
-@dataclass
-class MenuItem:
-    id: int
-    name: str
-    price: float
-    category: str
-    is_available: bool = True
-
-
-@dataclass
-class OrderItem:
-    menu_item: MenuItem
-    quantity: int
-    note: str = ""
-
-    def get_subtotal(self) -> float:
-        return self.menu_item.price * self.quantity
-
-
-@dataclass
-class Order:
-    id: int
-    table_number: int
-    items: List[OrderItem] = field(default_factory=list)
-    status: OrderStatus = OrderStatus.PENDING
-    created_at: datetime = field(default_factory=datetime.now)
-
-    TAX_RATE = 0.11
-    SERVICE_RATE = 0.05
-
-    def add_item(self, item: OrderItem):
-        if not item.menu_item.is_available:
-            raise ValueError(f"{item.menu_item.name} sedang habis")
-        self.items.append(item)
-
-    def subtotal(self) -> float:
-        return sum(i.get_subtotal() for i in self.items)
-
-    def total(self) -> float:
-        sub = self.subtotal()
-        return sub + sub * self.TAX_RATE + sub * self.SERVICE_RATE
-
-    def update_status(self, new_status: OrderStatus):
-        self.status = new_status
-```
-
 ## Roadmap
 
 - [x] Analisis kebutuhan dan aturan bisnis
@@ -624,9 +564,14 @@ class Order:
 - [ ] Dashboard admin dan laporan penjualan
 - [ ] Dukungan multi-cabang
 
-## Kontribusi
+## Kontributor
 
-Kontribusi sangat diterima. Silakan buka *issue* untuk diskusi, lalu ajukan *pull request* dengan deskripsi perubahan yang jelas.
+| No | Nama | NIM | Peran |
+|---|---|---|---|
+| 1 | Farhat Bima Raditya (60225134) | [isi NIM] | Modul Menu |
+| 2 | Zaki Rahul Fawas (60225135) | [isi NIM] | Modul Pesanan |
+| 3 | Putra Agung Srihandaka (60225149) | [isi NIM] | Modul Pembayaran, Promo, dan Laporan |
+| 4 | Muhammad Wafa (60225153) | [isi NIM] | Modul Meja, Staf, dan Dapur |
 
 ## Lisensi
 
