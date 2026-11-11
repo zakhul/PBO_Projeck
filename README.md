@@ -1,5 +1,6 @@
 [README.md](https://github.com/user-attachments/files/34666918/README.md)
-# PBO_Projeck# 🍽️ E-Menu: Sistem Pemesanan Menu Kafe / Restoran
+# PBO_Projeck
+# 🍽️ E-Menu: Sistem Pemesanan Menu Kafe / Restoran
 
 Sistem pemesanan digital berbasis QR code untuk kafe dan restoran. Pelanggan memindai QR di meja, melihat menu, memesan, dan membayar tanpa instal aplikasi. Pesanan masuk ke dapur dan kasir secara real-time, sementara admin mengelola menu, meja, promo, dan laporan.
 
