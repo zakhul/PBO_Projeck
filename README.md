@@ -572,7 +572,3 @@ erDiagram
 | 2 | Zaki Rahul Fawas (60225135) | [isi NIM] | Modul Pesanan |
 | 3 | Putra Agung Srihandaka (60225149) | [isi NIM] | Modul Pembayaran, Promo, dan Laporan |
 | 4 | Muhammad Wafa (60225153) | [isi NIM] | Modul Meja, Staf, dan Dapur |
-
-## Lisensi
-
-Tentukan lisensi proyek di sini (misalnya MIT) dan tambahkan file `LICENSE` di repositori.
