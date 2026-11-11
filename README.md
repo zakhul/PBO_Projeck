@@ -568,7 +568,7 @@ erDiagram
 
 | No | Nama | NIM | Peran |
 |---|---|---|---|
-| 1 | Farhat Bima Raditya (60225134) | [isi NIM] | Modul Menu |
-| 2 | Zaki Rahul Fawas (60225135) | [isi NIM] | Modul Pesanan |
-| 3 | Putra Agung Srihandaka (60225149) | [isi NIM] | Modul Pembayaran, Promo, dan Laporan |
-| 4 | Muhammad Wafa (60225153) | [isi NIM] | Modul Meja, Staf, dan Dapur |
+| 1 | Farhat Bima Raditya  | (60225134) | Modul Menu |
+| 2 | Zaki Rahul Fawas  | (60225135) | Modul Pesanan |
+| 3 | Putra Agung Srihandaka  | (60225149) | Modul Pembayaran, Promo, dan Laporan |
+| 4 | Muhammad Wafa  | (60225153) | Modul Meja, Staf, dan Dapur |
